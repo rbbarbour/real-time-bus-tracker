@@ -25,7 +25,7 @@ async function getBusNumber(){
     routeNumber = json.value[i].RouteName;
     //console.log('getBusNumber: ' + busNumber);
     legend.innerHTML = "You are now tracking bus number " + busNumber + ", currently running route " + routeNumber;
-    map.setCenter([json.value[i].Longitude, json.value[i].Latitude]);
+    map.easeTo({center: [json.value[i].Longitude, json.value[i].Latitude], zoom: 12, duration: 1500});
     if(timeoutID) {clearTimeout(timeoutID); console.log("Previous setTimeout cleared");};
     run()
 }
